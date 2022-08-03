@@ -82,7 +82,7 @@ dff_g = (proc_green - baseLine_g)./baseLine_g;
 dff_g_b70Hz = lowpass(dff_g', green_pass_fs(2), IMG_sampleRate, ...
             'ImpulseResponse','iir','Steepness',steepness);
 
-%% Filter red channel to different freuqency ranges
+%% Filter reference  channel to different freuqency ranges
 % Step 1: filter around heartbeat range
 dff_r_heartbeat = lowpass(dff_r', red_pass_heartbeat(2), IMG_sampleRate,...
             'ImpulseResponse','iir','Steepness',steepness);
@@ -157,7 +157,7 @@ end
 %% regressionAB uses Ordinary Least Squares method to regress out artifacts at different frequency range
 function [regressed_B, trace2regress, rg] = regressionAB(trace_A, trace_B )
     trace2regress = trace_B; % trace to be regressed: JEDI-1P-Kv channel
-    rg = trace_A;  % trace to regress from: red channel
+    rg = trace_A;  % trace to regress from: reference  channel
 
     % To avoid having to permute the matrix mannually in case the size of
     % of the matrix is not the same
