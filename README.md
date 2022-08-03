@@ -24,3 +24,6 @@ The pre-processing pipeline is described in manuscript [link] and follows the pi
 4. An empirically determined photobleaching model is also necessary for the photobleaching correction. An example file is included in this repository. Full path of the file is required for the file to be load properly. 
 
 Note that the step-wise regression is not limited to 3 steps. The regression steps as well as corresponding frequency ranges can be added or subtracted based on specific experimental need. 
+
+**The following toolbox is needed to be installed on Matlab: 
+Signal Processing Toolbox
