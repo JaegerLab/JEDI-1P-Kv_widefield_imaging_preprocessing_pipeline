@@ -27,5 +27,10 @@ The pre-processing pipeline is described in manuscript [link] and follows the pi
 
 ## Note that the step-wise regression is not limited to 3 steps. The regression steps as well as corresponding frequency ranges can be added or removed based on specific experimental need. 
 
+**Matlab versions tested: 
+MATLAB 2020b and 2022a.
+
 **The following toolbox is needed to be installed on Matlab: 
 Signal Processing Toolbox
+
+
