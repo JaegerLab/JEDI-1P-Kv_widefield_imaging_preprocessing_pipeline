@@ -1,18 +1,24 @@
 %% Function that extract voltage signals from imaging traces
 function [proc_dff, regressed_traces] = JEDI_preprocessing(reference_raw_trace, JEDI_raw_trace, parameters)
-    %% Set up Parameters
-    % example set of input frequencies; the exact values can vary based on
-    % experimental need. 
-    % 
-    % parameters.green_pass_fs = [0, 70];
-    % parameters.red_pass_heartbeat = [10, 30];     % band pass filter to extract heartbeat
-    % parameters.red_pass_motion = [1, 10];         % band pass filter to extract motion artifact
-    % parameters.red_pass_slowHemo = [0.01, 1];     % lowpass filter for extracting slow hemodynamics
-    % parameters.LFP_pass_fs = [0, 70];
-    % parameters.steepness = 0.95;                  % steepness for the filter
-    % parameters.IMG_duration = 20.48;              % imaging trial duration
-    % parameters.IMG_sampleRate = 200;              % frames/s
-    
+    % INPUT
+    %   reference_raw_trace: reference trace as a vector. 
+    %   JEDI_raw_trace: GEVI trace as a vector. 
+    %   parameters: parameter as a struct with the following fields: 
+    %       green_pass_fs: lowpass filter frequency range for GEVI trace, 
+    %           e.g. [0, 70]. 
+    %       red_pass_heartbeat: band pass filter frequency range to extract
+    %           heartbeat, e.g. [10, 30]. 
+    %       red_pass_motion: band pass filter frequency range to extract  
+    %           motion artifact, e.g. [1, 10]. 
+    %       red_pass_slowHemo: lowpass filter frequency range for extracting 
+    %           slow hemodynamics, e.g. [0.01, 1]. 
+    %       steepness: filters steepness, e.g. 0.95. 
+    %       IMG_duration: imaging trial duration in seconds, e.g. 20.48. 
+    %       IMG_sampleRate: imaging frame per second, e.g. 200. 
+    % OUTPUT
+    %   proc_dff: processed response signal. 
+    %   regressed_traces: stepwise regressed signal. 
+
     % lowpass filter for JEDI-1P-Kv
     green_pass_fs = parameters.green_pass_fs;
     % band pass filter to extract heartbeat at its harmonics (Step 1)
@@ -39,9 +45,11 @@ function [proc_dff, regressed_traces] = JEDI_preprocessing(reference_raw_trace, 
     %% 2. Detrending to correct photobleaching
     
     % load function that describes photobleaching exponential decay 
-    % first load p; Note that the decay might be different depending on the setup
+    % first load p; 
+    % Note that the decay might be different depending on the setup
     % An example file is included in the repository
-    filePath_photobleaching_decay = ''; % full file path for the fitted phtobleaching exponential decay
+    % full file path for the fitted phtobleaching exponential decay
+    filePath_photobleaching_decay = 'P_photobleaching_JEDI_exp_fit.mat'; 
     
     p = load(filePath_photobleaching_decay);
     
