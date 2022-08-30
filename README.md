@@ -28,9 +28,20 @@ The pre-processing pipeline is described in manuscript [link] and follows the pi
 ## Note that the step-wise regression is not limited to 3 steps. The regression steps as well as corresponding frequency ranges can be added or removed based on specific experimental need. 
 
 **Matlab versions tested: 
-MATLAB 2020b and 2022a.
+MATLAB 2020b, 2021b, and 2022a.
 
 **The following toolbox is needed to be installed on Matlab: 
 Signal Processing Toolbox
+
+Aside from installing Matlab and necessary toolbox(es), no additional installation is necessary. 
+
+############################### 
+A demo script is included in this repository: example_script. Necessary files for the demo script to run is also included in the repository.
+
+The output should look like the following: 
+![output_fig_example_script](https://user-images.githubusercontent.com/43519726/187534783-df115e64-6215-4d07-b524-a4bbea1778d1.png)
+
+Expected runtime for the demo file is 1.1 s. Note that parfor from Parallel Computing Toolbox can be used to speed up the pipeline when running a large number of traces.
+
 
 
