@@ -35,7 +35,8 @@ Signal Processing Toolbox
 
 Aside from installing Matlab and necessary toolbox(es), no additional installation is necessary. 
 
-############################### 
+================================================================
+
 A demo script is included in this repository: example_script. Necessary files for the demo script to run is also included in the repository.
 
 The output should look like the following: 
